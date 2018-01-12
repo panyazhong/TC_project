@@ -1,0 +1,94 @@
+/*通用配置*/
+*{
+    margin: 0;
+    padding: 0;
+}
+li{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+    color: rgb(51,51,51)
+}
+.clear{
+    clear: both;
+}
+.red{
+    color: red;
+}
+
+/*index*/
+.header-container{
+    background: rgb(240,240,240);
+    height: 100px;
+}
+.header-container>div{
+    float: left;
+}
+.header-container>div.login-register{
+    float: right;
+    margin-right: 30px;
+}
+.header-container>div.login-register>ul>li{
+    float: left;
+    margin-left: 20px;
+    line-height: 100px;
+    height: 30px;
+    color: rgb(51,51,51);
+    font: bold 16px/100px '微软雅黑';
+    position: relative;
+}
+.header-container>div.login-register>ul li:hover>a{
+    color: rgb(0, 153, 0);
+}
+.header-container>div.login-register>ul>li.about:hover ul{
+    display: block;
+}
+.header-container>div.login-register>ul>li.news>span{
+    float: right;
+    margin-top: 40px;
+    font: normal 12px/16px '微软雅黑';
+    width: 18px;
+    height: 18px;
+    text-align: center;
+    background: rgb(209,74,16);
+    color: white;
+    border-radius: 50%;
+}
+.header-container>div.login-register>ul>li a{
+    float: left;
+    font: bold 16px/100px '微软雅黑';
+    color: rgb(51,51,51);
+}
+.header-container>div.login-register>ul>li>ul{
+    display: none;
+    width: 100px;
+    height: 120px;
+    position: absolute;
+    top: 70px;
+    left: -20px;
+    border: 1px solid #cfcfcf;
+}
+.header-container>div.login-register>ul>li.manage>ul{
+    height: 150px;
+}
+.header-container>div.login-register>ul>li>ul>li{
+    line-height: 30px;
+    float: left;
+    text-align: center;
+    width: 100%;
+}
+.header-container>div.login-register>ul>li>ul>li>a{
+    display: block;
+    width: 100%;
+    font: bold 16px/30px '微软雅黑';
+}
+/**/
+.list li{
+    height: 100px;
+    line-height: 100px;
+}
+.list li a{
+    font-size: 12px;
+    color: rgb(153,153,153  )
+}

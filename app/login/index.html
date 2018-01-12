@@ -1,0 +1,30 @@
+<div class="login-container">
+    <div class="login">
+        <div>
+            <label for="mail">邮箱:</label>
+            <input type="text" name="mail" id="mail" ng-model="user.username">
+            <div class="tip mail-tip red" ng-show="mailIsNull">邮箱不能为空</div>
+        </div>
+        <div>
+            <label for="pwd">密码:</label>
+            <input type="password" name="username" id="pwd" ng-model="user.password">
+            <div class="tip pwd-tip red" ng-show="pwdIsNull">密码不能为空</div>
+        </div>
+        <div class="rem-box">
+            <input type="checkbox" name="" id="rem" ng-model="isRem" ng-change="remPwd()">
+            <label for="rem" class="rem-tip">保持我的登录状态</label>
+        </div>
+        <button ng-click="login(user)">登录</button>
+        <a href="">忘记密码</a>
+    </div>
+    <div class="right">
+        <div>
+            <p>还没有账号？</p>
+            <button>
+                <a ng-href="/register">
+                    立即注册
+                </a>
+            </button>
+        </div>
+    </div>
+</div>

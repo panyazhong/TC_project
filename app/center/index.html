@@ -1,0 +1,87 @@
+<div class="center-container">
+    <div class="center-header">
+        <ul>
+            <li class="click-li">
+                <a href="">
+                    基本信息
+                </a>
+            </li>
+            <li class="click-li">
+                <a href="">
+                    修改密码
+                </a>
+            </li>
+            <li class="click-li">
+                <a href="">
+                    我的消息
+                </a>
+            </li>
+            <li class="click-li last">
+                <a href="">
+                    身份认证
+                </a>
+            </li>
+            <div class="clear"></div>
+        </ul>
+    </div>
+    <div class="center-content">
+        <div class="info-content first">
+            <div>
+                <div>
+                    <label for="">用户名：</label>
+                    <span>{{user.username}}</span>
+                    <div class="clear"></div>
+                </div>
+                <div>
+                    <label for="">注册时间：</label>
+                    <span>{{user.reg_time}}</span>
+                    <div class="clear"></div>
+                </div>
+                <div>
+                    <label for="">昵称：</label>
+                    <input type="text" ng-model="user.pet_name">
+                    <div class="clear"></div>
+                </div>
+                <div>
+                    <label for="">生日：</label>
+                    <input type="date" ng-model="user.birthday">
+                    <div class="clear"></div>
+                </div>
+                <div>
+                    <label for="">性别：</label>
+                    <input type="radio" name="sex" ng-model="user.sex" value="0"><label class="sex">男</label>
+                    <input type="radio" name="sex" ng-model="user.sex" value="1"><label class="sex">女</label>
+                    <div class="clear"></div>
+                </div>
+                <div>
+                    <label for="">个人介绍：</label>
+                    <textarea name="" id="" cols="30" ng-model="user.desc" rows="10"></textarea>
+                    <div class="clear"></div>
+                </div>
+                <button ng-click="submitBaseInfo(user)">确定</button>
+            </div>
+        </div>
+        <div class="info-content second">
+            <div>
+                <div>
+                    <label for="">旧密码：</label>
+                    <input type="password" ng-model="user.old_pwd">
+                    <div class="clear"></div>
+                </div>
+                <div>
+                    <label for="">新密码：</label>
+                    <input type="password" ng-model="user.new_pwd">
+                    <div class="clear"></div>
+                </div>
+                <div>
+                    <label for="">确认密码：</label>
+                    <input type="password" ng-model="user.com_new_pwd">
+                    <div class="clear"></div>
+                </div>
+                <button ng-click="submitPwd(user)">确定</button>
+            </div>
+        </div>
+        <div class="info-content">3</div>
+        <div class="info-content">4</div>
+    </div>
+</div>

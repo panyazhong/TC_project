@@ -1,0 +1,14 @@
+{
+  "YSZX": {
+    "effectAmount": "1000元",
+    "allPeriod": "12期",
+    "everyPeriod": "100元",
+    "waitDesc": "由于资金匹配效率还未跟上，绿卡分期借款会逐步开放\uD83D\uDE0A"
+  },
+  "RCFQ": {
+    "effectAmount": "2000元",
+    "allPeriod": "12期",
+    "everyPeriod": "200元",
+    "waitDesc": "由于资金匹配效率还未跟上，红卡分期产品会逐步开放\uD83D\uDE0A"
+  }
+}

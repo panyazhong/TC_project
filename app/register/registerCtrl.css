@@ -1,0 +1,29 @@
+.register{
+    height: 550px;
+}
+.register>div input{
+    height: 35px;
+}
+.register>div input.code-input{
+    width: 150px;
+    float: left;
+    box-sizing: border-box;
+}
+button.get{
+    width: 150px;
+    box-sizing: border-box;
+    float: left;
+    margin: 0;
+    height: 35px;
+    letter-spacing: 0;
+    font: normal 12px/30px '微软雅黑';
+}
+.register>div label.zs-tip{
+    width: 220px;
+    font-size: 12px;
+    display: inline;
+    vertical-align: text-bottom;
+}
+.register>div.zs-container{
+    height: 30px;
+}

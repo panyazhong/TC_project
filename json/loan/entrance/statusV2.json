@@ -1,0 +1,111 @@
+{
+  "status": "SUCCESS",
+  "msg": null,
+  "object": {
+    "continueLoan": false,
+    "continueFunded": false,
+    "oldFlow": false,
+    "idcardEmpty": false,
+    "msg": null,
+    "loanType": "SWHJ",
+    "loanStatus": "Canceled",
+    "refId": "SWHJ_0-490753",
+    "steps": [
+      {
+        "step": null,
+        "started": null,
+        "finished": null,
+        "expTime": 0,
+        "btnInfo": {
+          "btnText": "现在借款",
+          "actionUrl": "#/loan/entrance",
+          "tip": "只需简单4步，最快20分钟完成审核",
+          "tipUrl": null,
+          "rightTip": null,
+          "nativeAction": "applyLoan",
+          "isNco": false,
+          "ncoOldAmount": 0,
+          "ncoNewAmount": 0
+        }
+      }
+    ],
+    "descriptions": null,
+    "redirectUrl": null,
+    "btnStyle": "default",
+    "loanSWHJ": {
+      "isValid": true,
+      "loanSuccessNum": 0,
+      "couponNum": 1,
+      "creditLimit": 1000,
+      "creditLimitTop": 1500,
+      "isOldUser": true,
+      "isQuickCredit": false,
+      "refId": null,
+      "amount": 0,
+      "days": 0,
+      "continueLoanText": "当前借款：0元/0天"
+    },
+    "loanGCFQ": {
+      "isVisible": false,
+      "isValid": true,
+      "isCanApply": false,
+      "loanSuccessNum": 3,
+      "couponNum": 0,
+      "refId": null,
+      "amount": 1000,
+      "month": 0,
+      "continueLoanText": "当前借款：1000元/0个月"
+    },
+    "loanSGC": {
+      "isVisible": false,
+      "isValid": true,
+      "isCanApply": false,
+      "loanSuccessNum": 0,
+      "couponNum": 0,
+      "refId": null,
+      "amount": 0,
+      "month": 0,
+      "continueLoanText": "当前借款：0元/30天"
+    },
+    "loanFQ": {
+      "isVisible": true,
+      "isValid": true,
+      "isCanApply": true,
+      "loanSuccessNum": 3,
+      "couponNum": 0,
+      "refId": null,
+      "amount": 2000,
+      "month": 0,
+      "continueLoanText": "当前借款：2000元/0个月"
+    },
+    "loanBC": {
+      "isVisible": true,
+      "isValid": true,
+      "isCanApply": false,
+      "loanSuccessNum": 0,
+      "couponNum": 0,
+      "refId": null,
+      "amount": 0,
+      "month": 0,
+      "continueLoanText": "当前借款：0元/0个月"
+    },
+    "userLevel": 4,
+    "userLevelV2": -1,
+    "canOpenSWHJ": false,
+    "canOpenGCFQ": false,
+    "canOpenFQ": false,
+    "notOpenSWHJDesc": "有效额度:1000元\n升级中 新的产品即将上线！\n（程序猿已经累趴掉，请大家多多体谅\uD83D\uDE2D）",
+    "notOpenFQDesc": "有效额度:1000元\n升级中 新的产品即将上线！\n（程序猿已经累趴掉，请大家多多体谅\uD83D\uDE2D）",
+    "waitOpenYSZXDesc": [
+      "排队开启中...",
+      "小巴士正在快马加鞭匹配资金方"
+    ],
+    "waitOpenRCFQDesc": [
+      "排队开启中...",
+      "小巴士正在快马加鞭匹配资金方"
+    ],
+    "currDate": 1514880790160,
+    "endDate": 1513389600000
+  },
+  "needCaptcha": null
+}

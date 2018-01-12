@@ -1,0 +1,96 @@
+.center-container{
+    width: 900px;
+    margin: 0 auto;
+}
+.center-header{
+    width: 800px;
+    margin: 0 auto;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    height: 50px;
+}
+.center-header ul li{
+    float: left;
+    width: 180px;
+    margin: 0 10px;
+    text-align: center;
+    background: rgb(240,240,240);
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    height: 50px;
+    line-height: 50px;
+    font: bold 16px/50px '微软雅黑';
+}
+.center-header ul li a{
+    display: block;
+}
+.info-content{
+    width: 900px;
+    display: none;
+    border: 1px solid #ccc
+}
+.first{
+    display: block;
+}
+.center-content{
+    position: relative;
+}
+.center-content .first:before{
+    content: '';
+    width: 0px;
+    height: 0px;
+    border-bottom: 20px solid rgb(200,200,200);
+    border-right: 20px solid transparent;
+    position: absolute;
+    top: -20px;
+    left: 150px;
+}
+.center-content .second:before{
+    content: '';
+    width: 0px;
+    height: 0px;
+    border-bottom: 20px solid rgb(200,200,200);
+    border-right: 20px solid transparent;
+    position: absolute;
+    top: -20px;
+    left: 350px;
+}
+.info-content>div{
+    width: 700px;
+    margin: 0 auto;
+}
+.info-content>div label{
+    float: left;
+    font: normal 15px/40px '微软雅黑';
+    width: 150px;
+}
+.info-content>div label.sex{
+    float: left;
+}
+.info-content>div span{
+    float: left;
+    font: bold 16px/40px '微软雅黑';
+}
+.info-content>div input{
+    height: 25px;
+    margin-top: 8px;
+    vertical-align: middle;
+    box-sizing: border-box;
+    padding-left: 10px;
+    float: left;
+}
+.info-content button{
+    width: 100px;
+    height: 35px;
+    background: rgb(0,135,0);
+    border: none;
+    color: #fff;
+    font-size: 15px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+.info-content button:hover{
+    cursor: pointer;
+    background: rgb(0,204,0);
+}
+

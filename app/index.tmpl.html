@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>dapan</title>
+    <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimal-ui, width=device-width"/>
+    <base href="/">
+</head>
+<body ng-app="app">
+    <div class="header-container">
+        <div class="logo">
+            LOGO
+            <img src="./images/hkgl.gif" alt="">
+        </div>
+        <div class="login-register">
+            <ul>
+                <li>
+                    <a ng-href="login" ng-show="!showLogin">登录</a>
+                </li>
+                <li class="about manage" ng-show="showLogin">
+                    管理控制台
+                    <ul>
+                        <li>
+                            <a href="">相册管理</a>
+                        </li>
+                        <li>
+                            <a href="">个人中心</a>
+                        </li>
+                        <li>
+                            <a href="">管理中心</a>
+                        </li>
+                        <li>
+                            <a href="">消息中心</a>
+                        </li>
+                        <li>
+                            <a href="">退出</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="about news" ng-show="showLogin">
+                    <a href="">消息</a>
+                    <span>10</span>
+                </li>
+                <li class="about">
+                    <a href="">关于我们</a>
+                    <ul>
+                        <li>
+                            <a href="">关于我们</a>
+                        </li>
+                        <li>
+                            <a href="">联系我们</a>
+                        </li>
+                        <li>
+                            <a href="">上传须知</a>
+                        </li>
+                        <li>
+                            <a href="">服务条款</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div class="list">
+            <ul>
+                <li>
+                    <a ng-href="/uploadLocalImage">
+                        上传本地图片
+                    </a>
+                </li>
+                <li>
+
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div id="root">
+        <ng-view></ng-view>
+    </div>
+</body>
+</html>

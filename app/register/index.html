@@ -1,0 +1,51 @@
+<div class="login-container">
+    <div class="register login">
+        <div>
+            <label for="mail">邮箱:</label>
+            <input type="text" name="mail" id="mail" ng-model="user.mail">
+            <div class="tip mail-tip red" ng-show="mailIsNull">邮箱不能为空</div>
+        </div>
+        <div>
+            <label for="mail-code">邮箱验证码:</label>
+            <input type="text" name="mail" id="mail-code" class="code-input" ng-model="user.mailCode">
+            <button class="get">获取邮箱验证码</button>
+            <div class="tip mail-tip red" ng-show="mailCodeIsNull">验证码不能为空</div>
+        </div>
+        <div>
+            <label for="pet-name">昵称:</label>
+            <input type="text" name="pet-name" id="pet-name" ng-model="user.username">
+            <div class="tip pwd-tip red" ng-show="petNameIsNull">昵称不能为空</div>
+        </div>
+        <div>
+            <label for="pwd">密码:</label>
+            <input type="password" name="pwd" id="pwd" ng-model="user.password">
+            <div class="tip pwd-tip red" ng-show="pwdIsNull">密码不能为空</div>
+        </div>
+        <div>
+            <label for="compwd">确认密码:</label>
+            <input type="password" name="compwd" id="compwd" ng-model="user.compwd">
+            <div class="tip pwd-tip red" ng-show="comPwdIsNull">密码不能为空</div>
+        </div>
+        <div>
+            <label for="code">验证码:</label>
+            <input type="text" name="mail" id="code" class="code-input" ng-model="user.code">
+            <button class="get" ng-click="getCode()">{{code}}</button>
+            <div class="tip mail-tip red" ng-show="codeIsNull">验证码错误</div>
+        </div>
+        <div class="zs-container">
+            <input type="checkbox" name="" id="rem" ng-model="is_read">
+            <label for="rem" class="zs-tip">我已阅读并同意遵守《贴图库服务条款》</label>
+        </div>
+        <button ng-click="register(user)" ng-disabled="!is_read">注册</button>
+    </div>
+    <div class="right register">
+        <div>
+            <p>已有账号？</p>
+            <button>
+                <a ng-href="/login">
+                    立即登录
+                </a>
+            </button>
+        </div>
+    </div>
+</div>

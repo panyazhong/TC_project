@@ -1,0 +1,81 @@
+.login-container{
+    width: 900px;
+    margin: 50px auto   ;
+}
+.login,.right{
+    float: left;
+    width: 450px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    height: 300px;
+}
+.login>div{
+    position: relative;
+    width: 300px;
+    height: 60px;
+    margin: 10px auto;
+}
+.login>div label{
+    display: block;
+    width: 120px;
+    font: normal 13px/30px '微软雅黑';
+}
+.login>div label.rem-tip{
+    display: inline;
+    line-height: 30px;
+}
+.login>div.rem-box{
+    height: 30px;
+}
+.login>div input{
+    width: 300px;
+    height: 25px;
+}
+.login>div input[type=checkbox]{
+    width: 15px;
+    height: 12px;
+    margin-top: 8px;
+}
+.login button{
+    width: 150px;
+    margin-left: 75px;
+    height: 35px;
+    font-size: 15px;
+    letter-spacing: 15px;
+    padding-left: 15px;
+}
+.login a{
+    font: normal 13px/35px '微软雅黑';
+    margin-left: 20px;
+}
+.login>div>div.tip{
+    width: 100px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    font: normal 12px/20px '微软雅黑';
+    border: 1px solid red;
+    text-align: center;
+}
+.right>div{
+    width: 300px;
+    margin: 10px auto;
+}
+.right>div p{
+    margin-top: 30px;
+    font: bold 15px/30px '微软雅黑';
+}
+.right>div button{
+    width: 150px;
+    display: block;
+    margin: 30px auto;
+    height: 45px;
+    font-size: 15px;
+    letter-spacing: 15px;
+    padding-left: 15px;
+}
+.right>div button>a{
+    display: block;
+    height: 45px;
+    line-height: 40px;
+}
