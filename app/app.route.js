@@ -25,6 +25,22 @@ export default function routing ($locationProvider, $routeProvider) {
             template: require('./center/index.html'),
             controller: "centerCtrl"
         })
+        .when('/manguage',{
+            template: require('./manguage/index.html'),
+            controller: "manguageCtrl"
+        })
+        .when('/albumManguage',{
+            template: require('./albumManguage/index.html'),
+            controller: "albumManguageCtrl"
+        })
+        .when('/picManguage/:albumId',{
+            template: require('./picManguage/index.html'),
+            controller: "picManguageCtrl"
+        })
+        .when('/main',{
+            template: require('./main/index.html'),
+            controller: "mainCtrl"
+        })
         .otherwise('/uploadLocalImage');
     $locationProvider.html5Mode(true);
 }

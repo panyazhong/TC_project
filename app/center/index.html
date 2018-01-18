@@ -1,7 +1,7 @@
 <div class="center-container">
     <div class="center-header">
         <ul>
-            <li class="click-li">
+            <li class="click-li active">
                 <a href="">
                     基本信息
                 </a>
@@ -49,8 +49,8 @@
                 </div>
                 <div>
                     <label for="">性别：</label>
-                    <input type="radio" name="sex" ng-model="user.sex" value="0"><label class="sex">男</label>
-                    <input type="radio" name="sex" ng-model="user.sex" value="1"><label class="sex">女</label>
+                    <input type="radio" name="sex" ng-model="user.sex" id="man" value="0"><label class="sex" for="man">男</label>
+                    <input type="radio" name="sex" ng-model="user.sex" id="woman" value="1"><label class="sex" for="woman">女</label>
                     <div class="clear"></div>
                 </div>
                 <div>
@@ -81,7 +81,7 @@
                 <button ng-click="submitPwd(user)">确定</button>
             </div>
         </div>
-        <div class="info-content">3</div>
-        <div class="info-content">4</div>
+        <div class="info-content third">3</div>
+        <div class="info-content forth">4</div>
     </div>
 </div>

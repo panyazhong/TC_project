@@ -1,0 +1,136 @@
+.cropArea {
+    background: #efefef;
+    min-height: 230px;
+    width: 840px;
+    border-radius: 5px;
+    border: 2px dotted #ccc;
+    margin: 50px auto;
+    margin-top: 10px;
+    height: auto;
+}
+.cropArea p{
+    color: rgb(211,204,204);
+    text-align: center;
+    font: normal 20px/230px '微软雅黑';
+}
+.pre-container{
+    width: 185px;
+    height: 185px;
+    float: left;
+    margin-left: 20px;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+    position: relative;
+}
+.pre-container img{
+    width: 100%;
+    height: 183px;
+}
+.pre-container div.delete{
+    width: 100%;
+    height: 30px;
+    background: rgba(0,0,0,.3);
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: none;
+    font: normal 14px/30px '微软雅黑';
+    color: #fff;
+    padding-left: 10px;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+.pre-container:hover div.delete{
+    display: block;
+}
+.btn{
+    width: 80px;
+    height: 30px;
+    border-radius: 3px;
+    border: none;
+    background: rgb(0,135,0);
+    color: white;
+    cursor: pointer;
+    margin-left: 50px;
+}
+.btn-container{
+    width: 940px;
+    border: 1px solid rgb(204,204,204);
+    margin: 0px auto;
+    box-sizing: border-box;
+}
+.title{
+    width: 940px;
+    border: 1px solid rgb(204,204,204);
+    margin: 30px auto;
+    margin-bottom: 0;
+    border-bottom: 0;
+    font: bold 14px/50px '微软雅黑';
+    color: rgb(102,102,102);
+    padding-left: 20px;
+    box-sizing: border-box;
+}
+.btn-container .classify{
+    width: 500px;
+    height: 50px;
+    margin: 0 auto;
+}
+.btn-container .classify label{
+    font: normal 14px/50px '微软雅黑';
+    color: rgb(153,153,153)
+}
+.btn-container .classify select{
+    width: 200px;
+    height: 30px;
+    margin-top: 10px;
+    border: 1px solid rgb(153,153,153);
+    box-sizing: border-box;
+    padding-left: 10px;
+}
+.btn-container .classify button{
+    height: 30px;
+    width: 80px;
+    font-size: 14px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    background-color: rgb(0, 153, 0);
+}
+.btn-container .classify button a{
+    color: rgb(255, 255, 255);
+}
+.btn-container .submit{
+    width: 840px;
+    margin: 20px auto;
+}
+.btn-container .submit .total{
+    width: 400px;
+    float: left;
+}
+.btn-container .submit span{
+    font: normal 14px/20px '微软雅黑';
+    color: rgb(102,102,102);
+}
+.btn-container .submit button{
+    float: right;
+    background: #00b7ee;
+    color: #fff;
+    cursor: pointer;
+    width: 80px;
+    height: 45px;
+    width: 90px;
+    border-radius: 3px;
+    border: none;
+    font-size: 14px;
+}
+.btn-container .submit button:hover{
+    background: rgb(0,162,212);
+}
+.btn-container .submit div.submit-btn:after{
+    content: '';
+    height: 0;
+    line-height: 0;
+    display:block;
+    visibility:hidden;
+    clear:both;
+}

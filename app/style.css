@@ -25,6 +25,13 @@ a{
 .header-container>div{
     float: left;
 }
+.header-container>div.logo{
+    width: 100px;
+    height: 100px;
+}
+.header-container>div.logo img{
+    width: 100%;
+}
 .header-container>div.login-register{
     float: right;
     margin-right: 30px;
@@ -33,7 +40,7 @@ a{
     float: left;
     margin-left: 20px;
     line-height: 100px;
-    height: 30px;
+    /*height: 30px;*/
     color: rgb(51,51,51);
     font: bold 16px/100px '微软雅黑';
     position: relative;
@@ -68,6 +75,8 @@ a{
     top: 70px;
     left: -20px;
     border: 1px solid #cfcfcf;
+    background: #fefefe;
+    z-index: 999;
 }
 .header-container>div.login-register>ul>li.manage>ul{
     height: 150px;
@@ -87,6 +96,7 @@ a{
 .list li{
     height: 100px;
     line-height: 100px;
+    float: left;
 }
 .list li a{
     font-size: 12px;

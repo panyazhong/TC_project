@@ -5,19 +5,24 @@
 
 var centerController = angular.module('centerCtrlModule',['ngFileUpload'])
 
-centerController.controller('centerCtrl',['$scope','Upload',
-    function($scope,Upload){
+centerController.controller('centerCtrl',['$scope',
+    'Upload',
+    '$http',
+    function($scope,
+             Upload,
+             $http){
         /*
         * 选项卡*/
         let oLis = document.getElementsByClassName('click-li');
         let info_cons = document.getElementsByClassName('info-content');
         for(let i = 0; i < oLis.length; i++){
             oLis[i].onclick = () => {
-                console.log(i)
                 for(let j = 0; j < oLis.length; j++){
                     info_cons[j].style.display = 'none';
+                    oLis[j].className = 'click-li';
                 }
-                info_cons[i].style.display = 'block'
+                info_cons[i].style.display = 'block';
+                oLis[i].className = 'click-li active';
             }
         }
 
@@ -41,13 +46,13 @@ centerController.controller('centerCtrl',['$scope','Upload',
                     "Content-Type": "application/x-www-form-urlencoded",
                 }
             })
-            .success( (resp) => {
-                console.log(resp)
-            })
-            .error( (xhr, error) => {
-                console.log(xhr)
-            })
+                .then( (resp) => {
+
+                }, (error) => {
+
+                })
         }
+        //getBaseinfo()
 
         /*
         * 修改用户基本信息*/
@@ -62,11 +67,10 @@ centerController.controller('centerCtrl',['$scope','Upload',
                     "Content-Type": "application/x-www-form-urlencoded",
                 }
             })
-                .success( (resp) => {
-                    console.log(resp)
-                })
-                .error( (xhr, error) => {
-                    console.log(xhr)
+                .then( (resp) => {
+
+                }, (error) => {
+
                 })
         }
 

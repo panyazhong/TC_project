@@ -11,23 +11,34 @@
 }
 .center-header ul li{
     float: left;
-    width: 180px;
+    width: 120px;
     margin: 0 10px;
     text-align: center;
     background: rgb(240,240,240);
-    border: 1px solid #ccc;
+    border: 1px solid rgb(204,204,204);
     box-sizing: border-box;
     height: 50px;
     line-height: 50px;
     font: bold 16px/50px '微软雅黑';
 }
+.center-header ul li.active{
+    background: rgb(0,153,0);
+    border: 1px solid rgb(0,204,0);
+}
 .center-header ul li a{
     display: block;
+    color: rgb(165,153,153);
+}
+.center-header ul li.active a{
+    color: #fff;
+}
+.center-header ul li:hover{
+    border: 1px solid rgb(0,204,0);
 }
 .info-content{
     width: 900px;
     display: none;
-    border: 1px solid #ccc
+    border: 1px solid rgb(204,204,204);
 }
 .first{
     display: block;
@@ -39,21 +50,41 @@
     content: '';
     width: 0px;
     height: 0px;
-    border-bottom: 20px solid rgb(200,200,200);
+    border-bottom: 20px solid rgb(204,204,204);
     border-right: 20px solid transparent;
     position: absolute;
     top: -20px;
-    left: 150px;
+    left: 120px;
 }
 .center-content .second:before{
     content: '';
     width: 0px;
     height: 0px;
-    border-bottom: 20px solid rgb(200,200,200);
+    border-bottom: 20px solid rgb(204,204,204);
     border-right: 20px solid transparent;
     position: absolute;
     top: -20px;
-    left: 350px;
+    left: 260px;
+}
+.center-content .third:before{
+    content: '';
+    width: 0px;
+    height: 0px;
+    border-bottom: 20px solid rgb(204,204,204);
+    border-right: 20px solid transparent;
+    position: absolute;
+    top: -20px;
+    left: 400px;
+}
+.center-content .forth:before{
+    content: '';
+    width: 0px;
+    height: 0px;
+    border-bottom: 20px solid rgb(204,204,204);
+    border-right: 20px solid transparent;
+    position: absolute;
+    top: -20px;
+    left: 540px;
 }
 .info-content>div{
     width: 700px;
@@ -61,15 +92,17 @@
 }
 .info-content>div label{
     float: left;
-    font: normal 15px/40px '微软雅黑';
-    width: 150px;
+    font: normal 14px/40px '微软雅黑';
+    width: 130px;
+    color: rgb(153,153,153)
 }
 .info-content>div label.sex{
     float: left;
 }
 .info-content>div span{
     float: left;
-    font: bold 16px/40px '微软雅黑';
+    font: bold 14px/40px '微软雅黑';
+    color: rgb(153,153,153);
 }
 .info-content>div input{
     height: 25px;
@@ -77,7 +110,9 @@
     vertical-align: middle;
     box-sizing: border-box;
     padding-left: 10px;
+    border: 1px solid rgb(153,153,153);
     float: left;
+    color: rgb(153,153,153);
 }
 .info-content button{
     width: 100px;

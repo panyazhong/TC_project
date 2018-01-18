@@ -1,0 +1,43 @@
+<div>
+    <div class="top-container">
+        <div class="top-container-left">
+            <p>
+                <strong>相册管理</strong> | <a href="">默认相册</a> | <a href="">返回相册</a>
+            </p>
+        </div>
+        <div class="top-container-right">
+            <ul>
+                <li>
+                    <button ng-click="deletePic()">删除</button>
+                </li>
+                <li>
+                    <a ng-click="chooseAll()">全选</a>
+                </li>
+                <li>
+                    <a ng-click="chooseInverse('checkbox')">反选</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="album-container" id="album-container">
+        <div class="album-item pic-item" ng-repeat="item in picList">
+            <div>
+                <div class="pic-con">
+                    <img ng-src="{{item.imgUrl}}" alt="" ng-click="showOriPic(item.imgUrl)">
+                </div>
+                <div class="album-detail">
+                    <input type="checkbox" name="" id="{{item.id}}" ng-model="item.checked" ng-change="selectOne()">
+                    <input type="text" name="" id="" ng-model="item.pic_name">
+                    <button ng-click="modify_pic_info(item)">修改</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="popup" ng-show="show_popup">
+        <span ng-click="closePopup()">×</span>
+        <div>
+
+            <img ng-src="{{ori_url}}" alt="">
+        </div>
+    </div>
+</div>

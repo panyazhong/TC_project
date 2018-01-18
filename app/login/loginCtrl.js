@@ -7,7 +7,58 @@ var loginController = angular.module('loginCtrlModule', []);
 
 loginController.controller('loginCtrl', ['$scope','$location','$httpParamSerializer','$http','$rootScope',
     function ($scope,$location,$httpParamSerializer,$http,$rootScope) {
-        $scope.username = 'dapan';
+
+        /*
+         * delCookie*/
+        let delCookie = (name) => {
+            setCookie(name, null, -1);
+        }
+
+        /*
+         * setCookie*/
+        let setCookie = (name, value, day) => {
+            let date = new Date()
+            date.setDate(date.getDate() + day)
+            document.cookie = name + '=' + value + ';expires=' + date
+        }
+
+        /*
+         * getCookie*/
+        let getCookie = (name) => {
+            var reg = RegExp(name+'=([^;]+)');
+            var arr = document.cookie.match(reg);
+            if(arr){
+                return arr[1];
+            }else{
+                return '';
+            }
+        }
+
+        /*
+        * 判断用户是否记住密码*/
+        if(getCookie('username') && getCookie('password')) {
+            $scope.user = {
+                username: getCookie('username'),
+                password: getCookie('password'),
+            }
+            $scope.isRem = true
+        } else {
+            $scope.user = {
+
+            }
+            $scope.isRem = false
+        }
+
+        /*
+        * enter键登录*/
+        document.addEventListener('keyup', (e) => {
+            e = e || window.event
+            if (e.keyCode == 13) {
+                login($scope.user)
+            }
+        })
+
+
         /*
         * 登录*/
         $scope.login = (user) => {
@@ -48,45 +99,22 @@ loginController.controller('loginCtrl', ['$scope','$location','$httpParamSeriali
                         alert(resp.data.message)
                         $rootScope.showLogin = true
                         $rootScope.username = user.username
+                        $location.path('/main')
                     }
                 },(xhr,error) => {
                     console.log(error)
                 })
-            //$location.path('center')
         }
 
         /*
         * remPwd*/
-        $scope.remPwd = () => {
+        $scope.remPwd = (user) => {
             if (!$scope.isRem) {
                 delCookie('username');
                 delCookie('password');
-            }
-        }
-
-        /*
-        * delCookie*/
-        let delCookie = (name) => {
-            setCookie(name, null, -1);
-        }
-
-        /*
-        * setCookie*/
-        let setCookie = (name, value, day) => {
-            let date = new Date()
-            date.setDate(date.getDate() + day)
-            document.cookie = name + '=' + value + ';expires=' + date
-        }
-
-        /*
-        * getCookie*/
-        let getCookie = (name) => {
-            var reg = RegExp(name+'=([^;]+)');
-            var arr = document.cookie.match(reg);
-            if(arr){
-                return arr[1];
-            }else{
-                return '';
+            } else {
+                setCookie('username', user.username, 7);
+                setCookie('password', user.password, 7);
             }
         }
 }]);

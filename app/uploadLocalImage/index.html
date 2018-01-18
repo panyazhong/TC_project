@@ -1,3 +1,51 @@
 <div>
-    uploadImage
+    <div class="title">
+        <p>上传到我的图库</p>
+    </div>
+    <div class="btn-container">
+        <div class="classify">
+            <label for="classify">请选择分类</label>
+            <select name="" id="classify">
+                <option value="">adsadsa</option>
+                <option value="">fafas</option>
+                <option value="">dsadsa</option>
+            </select>
+            <button>
+                <a href="">创建相册</a>
+            </button>
+        </div>
+        <button class="btn btn-default"
+                ngf-select="selectImage($files)"
+                ngf-pattern="'image/*'"
+                ngf-multiple="true">
+            选择图片
+        </button>
+        <span>(支持多张图片拖拽上传)</span>
+        <div class="cropArea"
+             ngf-drop
+             ngf-pattern="'image/*'"
+             ng-model="files"
+             ngf-multiple="true"
+        >
+            <p ng-show="!hasImg">支持鼠标拖拽、QQ截屏后Ctrl+V粘贴、点击选择</p>
+            <!--<img-crop image="files || data.defaultImage" resule-image="files"></img-crop>-->
+            <div ngf-no-file-drop>该浏览器不支持拖拽上传。</div>
+            <div class="pre-container" style="margin-top: 15px;" ng-repeat="image in mulImages">
+                <div ng-repeat="item in image">
+                    <img ngf-src="item || data.defaultImage" class="img-responsive"/>
+                </div>
+                <div class="delete" ng-click="delete(this)">删除</div>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="submit">
+            <div class="total">
+                <span>选择{{total}}张图片，共{{size}}K</span>
+            </div>
+            <div class="submit-btn">
+                <button ng-click="upload()">开始上传</button>
+            </div>
+        </div>
+    </div>
+
 </div>

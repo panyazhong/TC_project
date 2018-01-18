@@ -11,7 +11,7 @@
             <div class="tip pwd-tip red" ng-show="pwdIsNull">密码不能为空</div>
         </div>
         <div class="rem-box">
-            <input type="checkbox" name="" id="rem" ng-model="isRem" ng-change="remPwd()">
+            <input type="checkbox" name="" id="rem" ng-model="isRem" ng-change="remPwd(user)">
             <label for="rem" class="rem-tip">保持我的登录状态</label>
         </div>
         <button ng-click="login(user)">登录</button>

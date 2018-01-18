@@ -9,8 +9,7 @@
 <body ng-app="app">
     <div class="header-container">
         <div class="logo">
-            LOGO
-            <img src="./images/hkgl.gif" alt="">
+            <img src="blob:http://localhost:8080/6be5cb18-20ff-4d01-84bb-c8902da4b282" alt="">
         </div>
         <div class="login-register">
             <ul>
@@ -21,19 +20,19 @@
                     管理控制台
                     <ul>
                         <li>
-                            <a href="">相册管理</a>
+                            <a ng-href="/albumManguage">相册管理</a>
                         </li>
                         <li>
-                            <a href="">个人中心</a>
+                            <a ng-href="/center">个人中心</a>
                         </li>
                         <li>
-                            <a href="">管理中心</a>
+                            <a ng-href="/manguage">管理中心</a>
                         </li>
                         <li>
                             <a href="">消息中心</a>
                         </li>
                         <li>
-                            <a href="">退出</a>
+                            <a ng-click="loginOut()">退出</a>
                         </li>
                     </ul>
                 </li>

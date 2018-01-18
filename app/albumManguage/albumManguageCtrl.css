@@ -1,0 +1,116 @@
+.top-container{
+    width: 99%;
+    margin: 10px auto;
+    height: 40px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+.top-container .top-container-left{
+    padding: 0;
+    width: 300px;
+    height: 40px;
+    float: left;
+    box-sizing: border-box;
+}
+.top-container p{
+    font: normal 14px/40px '微软雅黑';
+    margin-left: 20px;
+    color: rgb(102,102,102);
+}
+.top-container .top-container-right{
+    width: 300px;
+    height: 40px;
+    border: none;
+    float: right;
+    box-sizing: border-box;
+}
+.top-container .top-container-right:after{
+    content: "";
+    height: 0;
+    visibility: hidden;
+    display: block;
+    clear: both;
+}
+.top-container .top-container-right li{
+    float: right;
+    width: 80px;
+}
+.top-container .top-container-right li a{
+    font: normal 13px/40px '微软雅黑';
+    cursor: pointer;
+}
+.top-container .top-container-right li a:hover{
+    color: rgb(0,204,0)
+}
+.top-container .top-container-right li button{
+    width: 80px;
+    height: 35px;
+    margin-top: 2px;
+    margin-right: 10px;
+    background: rgb(0,153,0);
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+.top-container .top-container-right li button:hover{
+    background: rgb(0,204,0);
+}
+
+/**/
+.album-container .pic-con{
+    width: 300px;
+    height: 300px;
+    margin: 10px;
+}
+.album-container .album-item{
+    width: 320px;
+    height: 370px;
+    border: 1px solid rgb(204,204,204);
+    margin-left: 10px;
+    float: left;
+}
+.album-container .album-item:hover{
+    border: 1px solid rgb(0,204,0);
+}
+.album-container .album-item span{
+    display: block;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    width: 100px;
+    height: 100px;
+    float: left;
+}
+.album-container .album-item img{
+    width: 100%;
+}
+.album-container .album-item span.large{
+    width: 200px;
+    height: 200px;
+}
+.album-detail p{
+    margin-left: 10px;
+}
+.album-detail p:first-of-type{
+    width: 300px;
+}
+.album-detail p:first-of-type:after{
+    content: '';
+    height: 0;
+    display: block;
+    visibility: hidden;
+    clear: both;
+}
+.album-detail p a{
+    font: normal 12px/20px '微软雅黑';
+    float: left;
+    width: 60px;
+    cursor: pointer;
+    color: rgb(102,102,102)
+}
+.album-detail p a:hover{
+    color: rgb(0,153,0);
+}
+.album-detail p:first-of-type a{
+    font-size: 14px;
+    font-weight: bold;
+}
