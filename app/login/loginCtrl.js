@@ -89,6 +89,7 @@ loginController.controller('loginCtrl', ['$scope','$location','$httpParamSeriali
                 method: "POST",
                 data: loginData,
                 url: loginUrl,
+                withCredentials: true,
                 headers: {
                     "Content-Type": "application/x-www-form-urlencoded",
                 }

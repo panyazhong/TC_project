@@ -1,7 +1,7 @@
 .album-container{
     position: relative;
 }
-.album-container .pic-con{
+.album-container .pic-container{
     width: 180px;
     height: auto;
     padding-top: 10px;
