@@ -11,7 +11,7 @@
                     <button>回收站</button>
                 </li>
                 <li>
-                    <button>创建相册</button>
+                    <button ng-click="showPopup('createPopup')" >创建相册</buttonshowPopup>
                 </li>
             </ul>
         </div>
@@ -52,11 +52,11 @@
             </div>
         </div>
     </div>
-    <div class="createPopup">
+    <div class="createPopup" id="createPopup">
         <div id="drag-popup" draggable="true">
             <div class="create-header">
                 <p>创建相册</p>
-                <span>×</span>
+                <span ng-click="closePopup('createPopup')">×</span>
             </div>
             <div class="create-content">
                 <div>
@@ -70,7 +70,7 @@
             </div>
             <div class="create-footer">
                 <button>确认</button>
-                <button>取消</button>
+                <button ng-click="closePopup('createPopup')">取消</button>
             </div>
         </div>
     </div>

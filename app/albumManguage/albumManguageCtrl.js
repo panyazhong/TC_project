@@ -29,7 +29,6 @@ albumManguageController.controller('albumManguageCtrl', ['$scope',
             }
 
             document.onmousemove = function(e) {
-                console.log('move')
                 var e = e || window.event; //兼容ie浏览器
                 var left=e.clientX-diffX;
                 var top=e.clientY-diffY;
@@ -52,7 +51,6 @@ albumManguageController.controller('albumManguageCtrl', ['$scope',
             };
 
             document.onmouseup = function(e) { //当鼠标弹起来的时候不再移动
-                console.log('up')
                 this.onmousemove = null;
                 this.onmouseup = null; //预防鼠标弹起来后还会循环（即预防鼠标放上去的时候还会移动）
 
@@ -63,6 +61,13 @@ albumManguageController.controller('albumManguageCtrl', ['$scope',
             };
         };
 
+        $scope.closePopup = (id) => {
+            document.getElementById(id).style.display = 'none'
+        }
+
+        $scope.showPopup = (id) => {
+            document.getElementById(id).style.display = 'block'
+        }
 
 
 
