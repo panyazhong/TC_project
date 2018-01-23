@@ -41,6 +41,6 @@ export default function routing ($locationProvider, $routeProvider) {
             template: require('./main/index.html'),
             controller: "mainCtrl"
         })
-        .otherwise('/uploadLocalImage');
+        .otherwise('/main');
     $locationProvider.html5Mode(true);
 }

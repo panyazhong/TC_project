@@ -27,23 +27,30 @@ uploadLocalImageController.controller('uploadLocalImageCtrl',
         $scope.total = 0;
         $scope.size = 0;
         $scope.hasImg = false;
+        var newFileArr = [];
         $scope.selectImage = function (files) {
-            if (!files || !files.length) {
-                $scope.hasImg = false;
-                return;
-            }else{
-                $scope.hasImg = true;
-            }
-            if (files.length > 1) {
-                angular.forEach(files, function (item) {
-                    var image = [];
-                    image.push(item);
-                    $scope.size += Math.floor(item.size / 1024);
-                    $scope.mulImages.push(image);
-                })
-            } else {
-                $scope.size += Math.floor(files[0].size / 1024);
-                $scope.mulImages.push(files);
+            for(var i = 0;i < files.length;i++) {
+                if (newFileArr.indexOf(files[i].name) == -1) {
+                    newFileArr.push(files[i].name)
+                    if (!files || !files.length) {
+                        $scope.hasImg = false;
+                        return;
+                    } else {
+                        $scope.hasImg = true;
+                    }
+                    if (files.length > 1) {
+                        var image = [];
+                        image.push(files[i]);
+                        $scope.size += Math.floor(files[i].size / 1024);
+                        $scope.mulImages.push(image);
+                    } else {
+                        $scope.size += Math.floor(files[0].size / 1024);
+                        $scope.mulImages.push(files);
+                    }
+                } else {
+                    alert("图片重复！");
+                    break
+                }
             }
             $scope.total = $scope.mulImages.length;
         };
@@ -67,20 +74,11 @@ uploadLocalImageController.controller('uploadLocalImageCtrl',
                 },
                 withCredentials: true,
                 transformRequest: angular.identity,
-                eventHandlers: {
-                    progress: function(c) {
-                        console.log(c);
-                    }
-                },
-                uploadEventHandlers: {
-                    progress: function(e) {
-                        console.log(e);
-                    }
-                },
             })
             .then( (resp) => {
                 console.log(resp)
                 if(resp.data.status){
+                    $scope.hasImg = false;
                     alert(resp.data.message);
                     $scope.mulImages = []
                 }

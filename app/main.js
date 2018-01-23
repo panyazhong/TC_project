@@ -14,6 +14,7 @@ import './uploadLocalImage/uploadLocalImageCtrl.css';
 import './manguage/manguageCtrl.css';
 import './albumManguage/albumManguageCtrl.css';
 import './picManguage/picManguageCtrl.css';
+import './main/mainCtrl.css';
 
 angular.module("app", [
     ngRoute,
@@ -56,3 +57,8 @@ angular.module("app", [
             }
         }
     ])
+    .directive('pagination', () => {
+        return {
+            templateUrl: 'templates/pagination.html'
+        }
+    })

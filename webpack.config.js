@@ -16,6 +16,13 @@ module.exports = {
         historyApiFallback: true,
         inline: true
     },
+    //resolve: {
+    //    extensions: ['.js', '.html', '.json'],
+    //    alias: {
+    //        'images': resolve('app/images'),
+    //        'templates': resolve('app/templates'),
+    //    }
+    //},
     module: {
         rules: [
             {
@@ -43,6 +50,7 @@ module.exports = {
             },
             {
                 test: /\.html$/,
+
                 loader: 'raw-loader'
                 //use: [
                 //    {

@@ -14,9 +14,10 @@ picManguageController.controller('picManguageCtrl', ['$scope',
 
         /*
         * 瀑布流*/
-        window.onload = function () {
+        setTimeout(function(){
             waterFlow('album-container','pic-item')
-        }
+        },10)
+
 
         var minHeight = 0;
 
@@ -225,7 +226,6 @@ picManguageController.controller('picManguageCtrl', ['$scope',
         * 显示原图*/
         $scope.show_popup = false
         $scope.showOriPic = (url) => {
-            console.log('..')
             $scope.show_popup = true
             $scope.ori_url = url;
         }

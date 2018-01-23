@@ -10,7 +10,6 @@ albumManguageController.controller('albumManguageCtrl', ['$scope',
 
         /*
         * 弹框拖动*/
-        let drag_popup = document.getElementById('drag-popup')
         //拖拽功能(主要是触发三个事件：onmousedown\onmousemove\onmouseup)
         var drag = document.getElementById('drag-popup');
 
@@ -61,12 +60,14 @@ albumManguageController.controller('albumManguageCtrl', ['$scope',
             };
         };
 
+        $scope.create = false
+
         $scope.closePopup = (id) => {
-            document.getElementById(id).style.display = 'none'
+            $scope.create = false
         }
 
         $scope.showPopup = (id) => {
-            document.getElementById(id).style.display = 'block'
+            $scope.create = true
         }
 
 
