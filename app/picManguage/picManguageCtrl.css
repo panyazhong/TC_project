@@ -4,7 +4,7 @@
 .album-container .pic-container{
     width: 180px;
     height: auto;
-    padding-top: 10px;
+    padding: 10px;
 }
 .album-container .pic-item{
     width: 220px;

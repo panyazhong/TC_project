@@ -2,7 +2,7 @@
     <div class="top-container">
         <div class="top-container-left">
             <p>
-                <strong>相册管理</strong> | <a href="">默认相册</a> | <a href="">返回相册</a>
+                <strong>相册管理</strong> | <a href="">默认相册</a> | <a ng-href="/albumManguage">返回相册</a>
             </p>
         </div>
         <div class="top-container-right">
@@ -23,11 +23,11 @@
         <div class="album-item pic-item" ng-repeat="item in picList">
             <div>
                 <div class="pic-container">
-                    <img ng-src="{{item.imgUrl}}" alt="" ng-click="showOriPic(item.imgUrl)">
+                    <img ng-src="{{item.path}}" alt="" ng-click="showOriPic(item.path)">
                 </div>
                 <div class="album-detail">
-                    <input type="checkbox" name="" id="{{item.id}}" ng-model="item.checked" ng-change="selectOne()">
-                    <input type="text" name="" id="" ng-model="item.pic_name">
+                    <input type="checkbox" name="" id="{{item.picture_id}}" ng-model="item.checked" ng-change="selectOne()">
+                    <input type="text" name="" id="" ng-model="item.picture_name">
                     <button ng-click="modify_pic_info(item)">修改</button>
                 </div>
             </div>

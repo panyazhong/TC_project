@@ -35,19 +35,23 @@ angular.module("app", [
         '$http',
         function($rootScope,
                  $http){
+            let logo = document.getElementById('logo');
+            //logo.src = logoImg
+            console.log(logo)
             $rootScope.loginOut = () => {
-                let loginOutUrl = '';
+                let loginOutUrl = 'http://mc.urzz.me:8080/user/logout';
                 $http({
-                    method: "POST",
-                    data: '',
+                    method: "GET",
                     url: loginOutUrl,
+                    withCredentials: true,
                     headers: {
                         "Content-Type": 'x-www-form-urlencoded'
                     }
                 })
                 .then( (resp) => {
                     console.log(resp)
-                    if(true){
+                    if(resp.data.status){
+                        alert(resp.data.message)
                         $rootScope.showLogin = false
                         $rootScope.username = ''
                     }
@@ -55,10 +59,19 @@ angular.module("app", [
                     console.log(err)
                 })
             }
+
+            $rootScope.$on('$routeChangeStart',function() {
+                //if (currRoute.isNeedLogin && !cookieService.get('userId')) {
+                //    //在这里操作显示登陆的那个变量
+                //}
+                console.log('..')
+            });
         }
     ])
     .directive('pagination', () => {
         return {
-            templateUrl: 'templates/pagination.html'
+            restrict: 'E',
+            transclude: true,
+            template: require("./templates/pagination.html")
         }
     })

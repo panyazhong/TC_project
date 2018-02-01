@@ -20,17 +20,23 @@ a{
 /*index*/
 .header-container{
     background: rgb(240,240,240);
-    height: 100px;
+    height: 50px;
 }
 .header-container>div{
     float: left;
 }
+.header-container>div.list{
+    margin-left: 30px;
+}
 .header-container>div.logo{
     width: 100px;
-    height: 100px;
+    height: 50px;
+    margin-left: 20px;
 }
 .header-container>div.logo img{
     width: 100%;
+    /*height: 50px;*/
+    margin-top: 10px;
 }
 .header-container>div.login-register{
     float: right;
@@ -39,10 +45,10 @@ a{
 .header-container>div.login-register>ul>li{
     float: left;
     margin-left: 20px;
-    line-height: 100px;
+    line-height: 50px;
     /*height: 30px;*/
     color: rgb(51,51,51);
-    font: bold 16px/100px '微软雅黑';
+    font: bold 16px/50px '微软雅黑';
     position: relative;
 }
 .header-container>div.login-register>ul li:hover>a{
@@ -53,7 +59,7 @@ a{
 }
 .header-container>div.login-register>ul>li.news>span{
     float: right;
-    margin-top: 40px;
+    margin-top: 10px;
     font: normal 12px/16px '微软雅黑';
     width: 18px;
     height: 18px;
@@ -64,7 +70,7 @@ a{
 }
 .header-container>div.login-register>ul>li a{
     float: left;
-    font: bold 16px/100px '微软雅黑';
+    font: bold 16px/50px '微软雅黑';
     color: rgb(51,51,51);
 }
 .header-container>div.login-register>ul>li>ul{
@@ -72,7 +78,7 @@ a{
     width: 100px;
     height: 120px;
     position: absolute;
-    top: 70px;
+    top: 50px;
     left: -20px;
     border: 1px solid #cfcfcf;
     background: #fefefe;
@@ -94,8 +100,8 @@ a{
 }
 /**/
 .list li{
-    height: 100px;
-    line-height: 100px;
+    height: 50px;
+    line-height: 50px;
     float: left;
 }
 .list li a{

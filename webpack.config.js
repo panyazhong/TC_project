@@ -3,13 +3,15 @@
  */
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+var path = require("path");
 
 module.exports = {
     devtool: "eval-source-map",
     entry: __dirname + "/app/main.js",
     output: {
         path: __dirname + '/build',
-        filename: "bundle.js"
+        filename: "bundle.js",
+        publicPath: '/'
     },
     devServer: {
         contentBase: './build',
@@ -50,20 +52,11 @@ module.exports = {
             },
             {
                 test: /\.html$/,
-
-                loader: 'raw-loader'
-                //use: [
-                //    {
-                //        loader: 'raw-loader'
-                //    },{
-                //        loader: 'html-withimg-loader'
-                //    }
-                //]
-
+                loader: 'raw-loader',
             },
             {
                 test: /\.(png|jpg)$/,
-                loader: 'url-loader?limit=8192'
+                loader: 'url-loader?limit=8192&name=images/[hash:8].[name].[ext]',
             }
         ]
     },

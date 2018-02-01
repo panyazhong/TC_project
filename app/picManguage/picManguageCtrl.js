@@ -14,11 +14,6 @@ picManguageController.controller('picManguageCtrl', ['$scope',
 
         /*
         * 瀑布流*/
-        setTimeout(function(){
-            waterFlow('album-container','pic-item')
-        },10)
-
-
         var minHeight = 0;
 
         function waterFlow(parent,child){
@@ -56,70 +51,100 @@ picManguageController.controller('picManguageCtrl', ['$scope',
             }
         }
 
+
+        /*
+        * 加载图片*/
+        let getPics = () => {
+            let getPicUrl = 'http://mc.urzz.me:8080/picture/list'
+            $http({
+                method: "GET",
+                url: getPicUrl,
+                withCredentials: true,
+                headers: {
+                    "Content-Type": "appliction/x-www-form-urlencoded"
+                }
+            })
+            .then((resp) => {
+                console.log(resp)
+                if (resp.data.status) {
+                    for(let i = 0; i < resp.data.data.length; i++){
+                        resp.data.data[i].path = "http://" + resp.data.data[i].path
+                    }
+                    $scope.picList = resp.data.data
+                    setTimeout(function(){
+                        waterFlow('album-container','pic-item')
+                    },10)
+                }
+
+            }, (error) => {
+                console.log(error)
+            })
+        }
+        getPics()
         /*
         * 全选*/
-        $scope.picList = [
-            {
-                id: 1,
-                pic_name: 'jay',
-                imgUrl: 'http://i4.bvimg.com/626366/f5df9e253b56dfb2.jpg'
-            },
-            {
-                id: 2,
-                pic_name: 'table',
-                imgUrl: 'http://i4.bvimg.com/626366/c1f09be688d6398a.jpg'
-            },
-            {
-                id: 3,
-                pic_name: 'school',
-                imgUrl: 'http://i4.bvimg.com/626366/91eb2c3d7ec84569.jpg'
-            },
-            {
-                id: 4,
-                pic_name: 'jay',
-                imgUrl: 'http://i4.bvimg.com/626366/f5df9e253b56dfb2.jpg'
-            },
-            {
-                id: 5,
-                pic_name: 'table',
-                imgUrl: 'http://i4.bvimg.com/626366/c1f09be688d6398a.jpg'
-            },
-            {
-                id: 6,
-                pic_name: 'school',
-                imgUrl: 'http://i4.bvimg.com/626366/91eb2c3d7ec84569.jpg'
-            },
-            {
-                id: 7,
-                pic_name: 'jay',
-                imgUrl: 'http://i4.bvimg.com/626366/f5df9e253b56dfb2.jpg'
-            },
-            {
-                id: 8,
-                pic_name: 'table',
-                imgUrl: 'http://i4.bvimg.com/626366/c1f09be688d6398a.jpg'
-            },
-            {
-                id: 9,
-                pic_name: 'school',
-                imgUrl: 'http://i4.bvimg.com/626366/91eb2c3d7ec84569.jpg'
-            },
-            {
-                id: 10,
-                pic_name: 'jay',
-                imgUrl: 'http://i4.bvimg.com/626366/f5df9e253b56dfb2.jpg'
-            },
-            {
-                id: 11,
-                pic_name: 'table',
-                imgUrl: 'http://i4.bvimg.com/626366/c1f09be688d6398a.jpg'
-            },
-            {
-                id: 12,
-                pic_name: 'school',
-                imgUrl: 'http://i4.bvimg.com/626366/91eb2c3d7ec84569.jpg'
-            },
-        ]
+        //$scope.picList = [
+        //    {
+        //        id: 1,
+        //        pic_name: 'jay',
+        //        imgUrl: 'http://i4.bvimg.com/626366/f5df9e253b56dfb2.jpg'
+        //    },
+        //    {
+        //        id: 2,
+        //        pic_name: 'table',
+        //        imgUrl: 'http://i4.bvimg.com/626366/c1f09be688d6398a.jpg'
+        //    },
+        //    {
+        //        id: 3,
+        //        pic_name: 'school',
+        //        imgUrl: 'http://i4.bvimg.com/626366/91eb2c3d7ec84569.jpg'
+        //    },
+        //    {
+        //        id: 4,
+        //        pic_name: 'jay',
+        //        imgUrl: 'http://i4.bvimg.com/626366/f5df9e253b56dfb2.jpg'
+        //    },
+        //    {
+        //        id: 5,
+        //        pic_name: 'table',
+        //        imgUrl: 'http://i4.bvimg.com/626366/c1f09be688d6398a.jpg'
+        //    },
+        //    {
+        //        id: 6,
+        //        pic_name: 'school',
+        //        imgUrl: 'http://i4.bvimg.com/626366/91eb2c3d7ec84569.jpg'
+        //    },
+        //    {
+        //        id: 7,
+        //        pic_name: 'jay',
+        //        imgUrl: 'http://i4.bvimg.com/626366/f5df9e253b56dfb2.jpg'
+        //    },
+        //    {
+        //        id: 8,
+        //        pic_name: 'table',
+        //        imgUrl: 'http://i4.bvimg.com/626366/c1f09be688d6398a.jpg'
+        //    },
+        //    {
+        //        id: 9,
+        //        pic_name: 'school',
+        //        imgUrl: 'http://i4.bvimg.com/626366/91eb2c3d7ec84569.jpg'
+        //    },
+        //    {
+        //        id: 10,
+        //        pic_name: 'jay',
+        //        imgUrl: 'http://i4.bvimg.com/626366/f5df9e253b56dfb2.jpg'
+        //    },
+        //    {
+        //        id: 11,
+        //        pic_name: 'table',
+        //        imgUrl: 'http://i4.bvimg.com/626366/c1f09be688d6398a.jpg'
+        //    },
+        //    {
+        //        id: 12,
+        //        pic_name: 'school',
+        //        imgUrl: 'http://i4.bvimg.com/626366/91eb2c3d7ec84569.jpg'
+        //    },
+        //]
         var select_all_flag = 0;
         $scope.checked = [];
         $scope.chooseAll = () => {

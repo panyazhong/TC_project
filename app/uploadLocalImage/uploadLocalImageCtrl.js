@@ -59,7 +59,7 @@ uploadLocalImageController.controller('uploadLocalImageCtrl',
             if (!$scope.mulImages.length) {
                 return;
             }
-            var uploadUrl = 'http://mc.urzz.me:8080/upload/';
+            var uploadUrl = 'http://mc.urzz.me:8080/picture/upload/';
 
             var fd = new FormData();
             angular.forEach($scope.mulImages, (item) => {
