@@ -1,5 +1,8 @@
 <div class="login-container">
     <div class="login">
+        <!--<ul>-->
+            <!--<li ng-repeat="a in aad track by $index">{{a}}</li>-->
+        <!--</ul>-->
         <div>
             <label for="mail">邮箱:</label>
             <input type="text" name="mail" id="mail" ng-model="user.username">
@@ -12,7 +15,7 @@
         </div>
         <div class="rem-box">
             <input type="checkbox" name="" id="rem" ng-model="isRem" ng-change="remPwd(user)">
-            <label for="rem" class="rem-tip">保持我的登录状态</label>
+            <label for="rem" class="rem-tip">保持我的登录状态?</label>
         </div>
         <button ng-click="login(user)">登录</button>
         <a href="">忘记密码</a>

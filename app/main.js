@@ -21,6 +21,7 @@ angular.module("app", [
     //ngFileUploadShim,
     FileUploader,
     require('./login/loginCtrl').name,
+    require('./js/configDataModule').name,
     require('./register/registerCtrl').name,
     require('./center/centerCtrl').name,
     //require('./loan/index').name,
@@ -36,8 +37,6 @@ angular.module("app", [
         function($rootScope,
                  $http){
             let logo = document.getElementById('logo');
-            //logo.src = logoImg
-            console.log(logo)
             $rootScope.loginOut = () => {
                 let loginOutUrl = 'http://mc.urzz.me:8080/user/logout';
                 $http({
@@ -64,14 +63,14 @@ angular.module("app", [
                 //if (currRoute.isNeedLogin && !cookieService.get('userId')) {
                 //    //在这里操作显示登陆的那个变量
                 //}
-                console.log('..')
+
             });
         }
     ])
-    .directive('pagination', () => {
+    .directive('popup', () => {
         return {
             restrict: 'E',
             transclude: true,
-            template: require("./templates/pagination.html")
+            template: require("./templates/popup.html")
         }
     })

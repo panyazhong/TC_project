@@ -2,7 +2,8 @@
     <div class="top-container">
         <div class="top-container-left">
             <p>
-                <strong>相册管理</strong> | <a href="">默认相册</a> | <a ng-href="/albumManguage">返回相册</a>
+                <!--<strong>相册管理</strong> | <a href="">默认相册</a> | <a ng-href="/albumManguage">返回相册</a>-->
+                <strong>相册管理</strong>
             </p>
         </div>
         <div class="top-container-right">
@@ -25,6 +26,11 @@
                 <div class="pic-container">
                     <img ng-src="{{item.path}}" alt="" ng-click="showOriPic(item.path)">
                 </div>
+                <div class="tag">
+                    <strong ng-repeat="ele in item.tags">{{ele.tag_name}}</strong>
+                    <strong class="plus" ng-click="addTagPop(this)">+</strong>
+                    <div class="clear"></div>
+                </div>
                 <div class="album-detail">
                     <input type="checkbox" name="" id="{{item.picture_id}}" ng-model="item.checked" ng-change="selectOne()">
                     <input type="text" name="" id="" ng-model="item.picture_name">
@@ -34,10 +40,33 @@
         </div>
     </div>
     <div class="popup" ng-show="show_popup">
-        <span ng-click="closePopup()">×</span>
+        <span ng-click="closePopup(0)">×</span>
         <div>
-
             <img ng-src="{{ori_url}}" alt="">
         </div>
     </div>
+    <div class="add-tag-popup createPopup" ng-show="addTag" id="add-tag-popup" ng-click="hideTagUl()">
+        <div id="drag-popup" draggable="true">
+            <div class="create-header">
+                <p>添加标签</p>
+                <span ng-click="closePopup(1)">×</span>
+            </div>
+            <div class="create-content">
+                <div>
+                    <label for="album-name">选择标签：</label>
+                    <input type="text" id="album-name" ng-model="tag.tag_name" ng-click="showTagUl()">
+                    <ul id="tagUl" ng-show="showtags">
+                        <li ng-repeat="item in tags" ng-mouseover="addCls()" ng-mouseleave="delCls()" ng-click="choose(this)">
+                            {{item.tag_name}}
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="create-footer">
+                <button ng-click="addTags(tag)">确认</button>
+                <button ng-click="closePopup(1)">取消</button>
+            </div>
+        </div>
+    </div>
+    <popup></popup>
 </div>

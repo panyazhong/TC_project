@@ -3,14 +3,16 @@
  */
 "use strict";
 
-let picManguageController = angular.module('picManguageCtrl', [])
+let picManguageController = angular.module('picManguageCtrl', ['configDataModule'])
 
 picManguageController.controller('picManguageCtrl', ['$scope',
     '$http',
     '$httpParamSerializer',
+    'configDataService',
     function ($scope,
               $http,
-              $httpParamSerializer) {
+              $httpParamSerializer,
+              configDataService) {
 
         /*
         * 瀑布流*/
@@ -70,10 +72,19 @@ picManguageController.controller('picManguageCtrl', ['$scope',
                     for(let i = 0; i < resp.data.data.length; i++){
                         resp.data.data[i].path = "http://" + resp.data.data[i].path
                     }
+                    angular.forEach(resp.data.data, (value, key) => {
+                        angular.forEach(value.tags, (v, k) => {
+                            if (!v.tag_id) {
+                                v.tag_name = '默认'
+                            }
+                        })
+                    })
                     $scope.picList = resp.data.data
                     setTimeout(function(){
                         waterFlow('album-container','pic-item')
                     },10)
+                } else {
+                    configDataService.errorMessage(resp.data)
                 }
 
             }, (error) => {
@@ -83,68 +94,6 @@ picManguageController.controller('picManguageCtrl', ['$scope',
         getPics()
         /*
         * 全选*/
-        //$scope.picList = [
-        //    {
-        //        id: 1,
-        //        pic_name: 'jay',
-        //        imgUrl: 'http://i4.bvimg.com/626366/f5df9e253b56dfb2.jpg'
-        //    },
-        //    {
-        //        id: 2,
-        //        pic_name: 'table',
-        //        imgUrl: 'http://i4.bvimg.com/626366/c1f09be688d6398a.jpg'
-        //    },
-        //    {
-        //        id: 3,
-        //        pic_name: 'school',
-        //        imgUrl: 'http://i4.bvimg.com/626366/91eb2c3d7ec84569.jpg'
-        //    },
-        //    {
-        //        id: 4,
-        //        pic_name: 'jay',
-        //        imgUrl: 'http://i4.bvimg.com/626366/f5df9e253b56dfb2.jpg'
-        //    },
-        //    {
-        //        id: 5,
-        //        pic_name: 'table',
-        //        imgUrl: 'http://i4.bvimg.com/626366/c1f09be688d6398a.jpg'
-        //    },
-        //    {
-        //        id: 6,
-        //        pic_name: 'school',
-        //        imgUrl: 'http://i4.bvimg.com/626366/91eb2c3d7ec84569.jpg'
-        //    },
-        //    {
-        //        id: 7,
-        //        pic_name: 'jay',
-        //        imgUrl: 'http://i4.bvimg.com/626366/f5df9e253b56dfb2.jpg'
-        //    },
-        //    {
-        //        id: 8,
-        //        pic_name: 'table',
-        //        imgUrl: 'http://i4.bvimg.com/626366/c1f09be688d6398a.jpg'
-        //    },
-        //    {
-        //        id: 9,
-        //        pic_name: 'school',
-        //        imgUrl: 'http://i4.bvimg.com/626366/91eb2c3d7ec84569.jpg'
-        //    },
-        //    {
-        //        id: 10,
-        //        pic_name: 'jay',
-        //        imgUrl: 'http://i4.bvimg.com/626366/f5df9e253b56dfb2.jpg'
-        //    },
-        //    {
-        //        id: 11,
-        //        pic_name: 'table',
-        //        imgUrl: 'http://i4.bvimg.com/626366/c1f09be688d6398a.jpg'
-        //    },
-        //    {
-        //        id: 12,
-        //        pic_name: 'school',
-        //        imgUrl: 'http://i4.bvimg.com/626366/91eb2c3d7ec84569.jpg'
-        //    },
-        //]
         var select_all_flag = 0;
         $scope.checked = [];
         $scope.chooseAll = () => {
@@ -257,8 +206,134 @@ picManguageController.controller('picManguageCtrl', ['$scope',
 
         /*
         * 关闭弹框*/
-        $scope.closePopup = () => {
-            $scope.show_popup = false
+        $scope.closePopup = (param) => {
+            if (param == 0) {
+                $scope.show_popup = false
+            } else {
+                $scope.addTag = false
+            }
+
+        }
+
+        //获取图片标签
+        let getTags = () => {
+            let getTagsUrl = 'http://mc.urzz.me:8080/tag/list'
+            $http({
+                method: 'GET',
+                url: getTagsUrl,
+                withCredentials: true,
+                headers: {
+                    "Content-Type": "appliction/x-www-form-urlencoded"
+                }
+            })
+                .then((resp) => {
+                    if (resp.data.status) {
+                        $scope.tags = resp.data.data
+                    } else {
+                        configDataService.errorMessage(resp.data)
+                    }
+                }, (err) => {
+                    console.log(err)
+                })
+        }
+
+        /*
+         * 点击为图标增加标签*/
+        $scope.addTag = false
+        $scope.addTagPop = (t) => {
+            $scope.picture_id = t.item.picture_id
+            $scope.addTag = true;
+            console.log(t.item.tags)
+
+            $scope.tag = {
+                tag_idArr: [],
+                tag_nameArr: []
+            }
+            angular.forEach(t.item.tags, (v, k) => {
+                $scope.tag.tag_idArr.push(v.tag_id)
+            })
+            getTags()
+        }
+
+        /*
+        * 鼠标滑过高亮*/
+        $scope.addCls = (e) => {
+            e = window.event
+            configDataService.addClass(e.target, 'active')
+        }
+
+        $scope.delCls = (e) => {
+            e = window.event
+            configDataService.delClass(e.target)
+        }
+
+        /*
+        * 点击选择*/
+        $scope.choose = (param) => {
+            if(!$scope.tag){
+                $scope.tag = {
+                    tag_nameArr: [],
+                    tag_idArr: []
+                }
+            }
+            if($scope.tag.tag_nameArr.indexOf(param.item.tag_name) > -1) {
+                $scope.tag.tag_nameArr.splice($scope.tag.tag_nameArr.indexOf(param.item.tag_name), 1)
+                $scope.tag.tag_idArr.splice($scope.tag.tag_idArr.indexOf(param.item.tag_id), 1)
+            } else {
+                $scope.tag.tag_nameArr.push(param.item.tag_name)
+                $scope.tag.tag_idArr.push(param.item.tag_id)
+            }
+            $scope.tag.tag_name = $scope.tag.tag_nameArr.join(',')
+            $scope.tag.tag_id = $scope.tag.tag_idArr.join(',')
+        }
+
+        $scope.showTagUl = (e) => {
+            e = e || window.event;
+            if(e.stopPropagation()){
+                e.stopPropagation()
+            }else{
+                e.cancelBubble = true;
+            }
+            $scope.showtags = true
+        }
+
+        $scope.hideTagUl = (e) => {
+            e = e || window.event;
+            if(e.stopPropagation()){
+                e.stopPropagation()
+            }else{
+                e.cancelBubble = true;
+            }
+            $scope.showtags = false
+        }
+
+        /*
+        * 确认添加标签*/
+        $scope.addTags = (tag) => {
+            tag.picture_id = $scope.picture_id
+            let addTagsUrl = 'http://mc.urzz.me:8080/picture/'+$scope.picture_id+'/tags'
+            $http({
+                method: 'POST',
+                data: $httpParamSerializer(tag),
+                url: addTagsUrl,
+                withCredentials: true,
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                }
+            })
+            .then( (resp) => {
+                console.log(resp)
+                if (resp.data.status) {
+                    alert(resp.data.message)
+                    $scope.addTag = false;
+                    getPics()
+                } else {
+                    configDataService.errorMessage(resp.data)
+                }
+
+            }, (err) => {
+                console.log(err)
+            })
         }
     }
 ])

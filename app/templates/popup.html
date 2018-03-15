@@ -1,0 +1,22 @@
+<div class="createPopup" id="createPopup" ng-show="create">
+    <div id="drag-popup" draggable="true">
+        <div class="create-header">
+            <p>创建标签</p>
+            <span ng-click="closePopup('createPopup')">×</span>
+        </div>
+        <div class="create-content">
+            <div>
+                <label for="album-name">标签名称：</label>
+                <input type="text" id="album-name" ng-model="tag.tag_name">
+            </div>
+            <!--<div>-->
+            <!--<input type="checkbox" name="" id="">-->
+            <!--<label for="">公开相册</label>-->
+            <!--</div>-->
+        </div>
+        <div class="create-footer">
+            <button ng-click="addTag(tag)">确认</button>
+            <button ng-click="closePopup('createPopup')">取消</button>
+        </div>
+    </div>
+</div>

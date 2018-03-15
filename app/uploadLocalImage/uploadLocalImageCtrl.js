@@ -3,19 +3,45 @@
  */
 'use strict';
 
-var uploadLocalImageController = angular.module('uploadLocalImageCtrl', [])
+var uploadLocalImageController = angular.module('uploadLocalImageCtrl', ['configDataModule'])
 
 uploadLocalImageController.controller('uploadLocalImageCtrl',
     ['$scope',
         'Upload',
         '$http',
+        '$httpParamSerializer',
+        'configDataService',
     function ($scope,
               Upload,
-              $http) {
+              $http,
+              $httpParamSerializer,
+              configDataService) {
         $scope.data = {
             file: null,
             defaultImage: 'blob:http://localhost:8080/e1099f92-6f4d-4a23-8083-3b2877514c7a'
         };
+
+        //获取图片标签
+        let getTags = () => {
+            let getTagsUrl = 'http://mc.urzz.me:8080/tag/list'
+            $http({
+                method: 'GET',
+                url: getTagsUrl,
+                withCredentials: true,
+                headers: {
+                    "Content-Type": "appliction/x-www-form-urlencoded"
+                }
+            })
+            .then( (resp) => {
+                console.log(resp)
+                if(resp.data.status) {
+                    $scope.tags = resp.data.data
+                }
+            }, (err) => {
+                console.log(err)
+            })
+        }
+        getTags()
 
         $scope.mulImages = [];
 
@@ -62,6 +88,12 @@ uploadLocalImageController.controller('uploadLocalImageCtrl',
             var uploadUrl = 'http://mc.urzz.me:8080/picture/upload/';
 
             var fd = new FormData();
+            if(!!$scope.file){
+                if (!!$scope.file.tag_id) {
+                    fd.append('tag_id', $scope.file.tag_id)
+                }
+            }
+
             angular.forEach($scope.mulImages, (item) => {
                 fd.append('file',item[0])
             })
@@ -112,6 +144,46 @@ uploadLocalImageController.controller('uploadLocalImageCtrl',
         * 删除图片*/
         $scope.delete = (a) => {
             $scope.mulImages.splice(a.$index, 1);
+        }
+
+        /**/
+        $scope.create = false
+
+        $scope.closePopup = (id) => {
+            $scope.create = false
+        }
+
+        $scope.showPopup = (id) => {
+            $scope.create = true
+        }
+
+        /*
+        * 新增tag*/
+        $scope.addTag = (tag) => {
+            tag = $httpParamSerializer(tag)
+            let addTagsUrl = 'http://mc.urzz.me:8080/tag/add'
+            $http({
+                method: "POST",
+                url: addTagsUrl,
+                data: tag,
+                withCredentials: true,
+                headers: {
+                    "Content-Type": "application/x-www-form-urlencoded"
+                }
+            })
+            .then( (resp) => {
+                if (resp.data.status) {
+                    alert(resp.data.message)
+                    getTags()
+                } else {
+                    alert(resp.data.message)
+                }
+
+                $scope.create = false
+
+            }, (err) => {
+                console.log(err)
+            })
         }
 
     }

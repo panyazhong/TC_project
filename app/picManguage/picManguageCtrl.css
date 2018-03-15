@@ -26,6 +26,7 @@
 }
 .album-container .pic-item .album-detail{
     padding-bottom: 15px;
+    margin-top: 15px;
 }
 .album-container .pic-item .album-detail input{
     margin-left: 5px;
@@ -53,6 +54,29 @@
     margin-left: 5px;
     color: rgb(100,100,100);
     outline: none;
+}
+.tag{
+    width: 180px;
+    margin: 0 auto;
+    white-space: normal;
+}
+.tag strong{
+    float: left;
+    padding: 1px 10px;
+    border: 1px solid #ccc;
+    font-size: 12px;
+    margin-right: 10px;
+    margin-top: 5px;
+}
+.tag strong.plus{
+    font-size: 12px;
+    color: #999;
+    padding: 1px 5px;
+    cursor: pointer;
+}
+.tag strong.plus:hover{
+    color: #333;
+    border: 1px solid #333;
 }
 /**/
 .popup{
@@ -86,4 +110,28 @@
 .popup span:hover{
     background: rgb(0,204,0);
     color: #fefefe;
+}
+.create-content>div{
+    position: relative;
+}
+.create-content>div>ul{
+    width: 173px;
+    box-sizing: border-box;
+    border: 1px solid rgb(0,105,0);
+    background: #fff;
+    position: absolute;
+    top: 29px;
+    left: 100px;
+}
+.create-content>div>ul li{
+    height: 25px;
+    font: normal 13px/25px '微软雅黑';
+    padding-left: 10px;
+}
+.create-content>div>ul li:hover{
+    cursor: pointer;
+}
+.create-content>div>ul li.active{
+    background: rgb(0,204,0);
+    color: #fff;
 }

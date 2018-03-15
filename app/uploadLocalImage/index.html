@@ -4,14 +4,12 @@
     </div>
     <div class="btn-container">
         <div class="classify">
-            <label for="classify">请选择分类</label>
-            <select name="" id="classify">
-                <option value="">adsadsa</option>
-                <option value="">fafas</option>
-                <option value="">dsadsa</option>
+            <label for="classify">请选择标签</label>
+            <select name="" id="classify" ng-model="file.tag_id" ng-options="item.tag_id as item.tag_name for item in tags">
+                <option value="">-请选择-</option>
             </select>
             <button>
-                <a href="">创建相册</a>
+                <a href=""  ng-click="showPopup('createPopup')">创建标签</a>
             </button>
         </div>
         <button class="btn btn-default" ngf-select="selectImage($files)" ngf-pattern="'image/*'"
@@ -45,4 +43,5 @@
             </div>
         </div>
     </div>
+    <popup></popup>
 </div>

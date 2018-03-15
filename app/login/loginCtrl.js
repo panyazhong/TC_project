@@ -118,6 +118,8 @@ loginController.controller('loginCtrl', ['$scope','$location','$httpParamSeriali
                 setCookie('password', user.password, 7);
             }
         }
+
+        $scope.aad = [1,2,3,3,3,4]
 }]);
 
 module.exports = loginController;

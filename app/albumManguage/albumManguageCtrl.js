@@ -69,9 +69,6 @@ albumManguageController.controller('albumManguageCtrl', ['$scope',
         $scope.showPopup = (id) => {
             $scope.create = true
         }
-
-
-
     }
 ])
 

@@ -33,7 +33,7 @@ export default function routing ($locationProvider, $routeProvider) {
             template: require('./albumManguage/index.html'),
             controller: "albumManguageCtrl"
         })
-        .when('/picManguage/:albumId',{
+        .when('/picManguage',{
             template: require('./picManguage/index.html'),
             controller: "picManguageCtrl"
         })
