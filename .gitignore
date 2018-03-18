@@ -1,0 +1,8 @@
+# develop files
+node_modules/
+
+package.json
+
+# ide config
+.idea/
+*.iml
